@@ -18,7 +18,8 @@
 - cv.waitKey() or cv.waitKey(0): 아무 키나 누르면 창이 닫힘  
 - cv.destroyAllWindows(): 모든 창 닫기
 <br>
-[02 웹캠 영상에서 에지 검출 코드 보러가기](https://github.com/daanhaa/Computer-Vision/blob/main/HW1_0305/HW1_02.py)
+[01 이미지 불러오기 및 그레이스케일 변환](https://github.com/daanhaa/Computer-Vision/blob/main/HW1_0305/HW1_01.py)
+
 
 ### 결과 화면
 ![image](https://github.com/user-attachments/assets/5371a7d3-725d-4b4b-9fd8-e91951dbcf6e)  
