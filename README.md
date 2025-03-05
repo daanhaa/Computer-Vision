@@ -1,4 +1,4 @@
-# Computer-Vision 공부의 전체적인 흐름 기록장
+# Computer-Vision 공부의 전체적인 흐름 기록장입니다 !
 ## Danha's homework
 ### HW 1
 - 01.이미지 불러오기 및 그레이스케일 변환 실습
