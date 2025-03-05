@@ -10,12 +10,12 @@
 <br>
 
 ### 코드 설명
-- cv.imread(): 이미지를 불러오는 함수. BGR 형식으로 읽음  
-- cv.cvtColor(): BGR 이미지를 그레이스케일로 변환  
-- np.hstack(): 원본 이미지와 그레이스케일 이미지를 가로로 결합  
-- cv.imshow(): 결합된 이미지를 화면에 출력  
-- cv.waitKey() or cv.waitKey(0): 아무 키나 누르면 창이 닫힘  
-- cv.destroyAllWindows(): 모든 창 닫기
+> cv.imread(): 이미지를 불러오는 함수. BGR 형식으로 읽음  
+> cv.cvtColor(): BGR 이미지를 그레이스케일로 변환  
+> np.hstack(): 원본 이미지와 그레이스케일 이미지를 가로로 결합  
+> cv.imshow(): 결합된 이미지를 화면에 출력  
+> cv.waitKey() or cv.waitKey(0): 아무 키나 누르면 창이 닫힘  
+> cv.destroyAllWindows(): 모든 창 닫기
 <br>
 [01 이미지 불러오기 및 그레이스케일 변환](https://github.com/daanhaa/Computer-Vision/blob/main/HW1_0305/HW1_01.py)
 
