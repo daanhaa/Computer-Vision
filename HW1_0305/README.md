@@ -13,11 +13,15 @@
 - cv.cvtColor(): BGR 이미지를 그레이스케일로 변환  
 - np.hstack(): 원본 이미지와 그레이스케일 이미지를 가로로 결합  
 - cv.imshow(): 결합된 이미지를 화면에 출력  
-- cv.waitKey(): 아무 키나 누르면 창이 닫힘  
+- cv.waitKey() or cv.waitKey(0): 아무 키나 누르면 창이 닫힘  
 - cv.destroyAllWindows(): 모든 창 닫기
 
 ### 결과 화면
-![image](https://github.com/user-attachments/assets/5371a7d3-725d-4b4b-9fd8-e91951dbcf6e)
+![image](https://github.com/user-attachments/assets/5371a7d3-725d-4b4b-9fd8-e91951dbcf6e)  
+
+
+
+      
 
 ## 웹캠 영상에서 에지 검출
 - 웹캠을 사용하여 실시간 비디오 스트림을 가져온다
@@ -28,13 +32,14 @@
 - q 키를누르면영상창이종료
 
 ### 코드 설명
-cv.VideoCapture(): 웹캠을 열어 실시간 비디오 스트림을 가져옴.
-cv.cvtColor(): 실시간으로 받은 프레임을 그레이스케일로 변환.
-cv.Canny(): 변환된 프레임에 Canny 에지 검출 적용.
-np.hstack(): 원본 영상과 에지 검출된 영상을 가로로 결합.
-cv.imshow(): 결합된 영상을 실시간으로 출력.
-cv.waitKey(): q 키를 누르면 종료.
-cap.release() & cv.destroyAllWindows(): 웹캠과 모든 창 닫기.
+cv.VideoCapture(): 웹캠을 열어 실시간 비디오 스트림을 가져옴  
+cv.cvtColor(): 실시간으로 받은 프레임을 그레이스케일로 변환  
+cv.Canny(): 변환된 프레임에 Canny 에지 검출 적용  
+np.hstack(): 원본 영상과 에지 검출된 영상을 가로로 결합  
+cv.imshow(): 결합된 영상을 실시간으로 출력  
+cv.waitKey(q): q 키를 누르면 종료  
+cap.release() & cv.destroyAllWindows(): 웹캠과 모든 창 닫기  
+
 
 
 ### 결과 화면
