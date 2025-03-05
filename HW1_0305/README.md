@@ -18,7 +18,7 @@
 - cv.waitKey() or cv.waitKey(0): 아무 키나 누르면 창이 닫힘  
 - cv.destroyAllWindows(): 모든 창 닫기
 
-[01 이미지 불러오기 및 그레이스케일 변환 코드]()
+[01 이미지 불러오기 및 그레이스케일 변환 코드 보러가기](https://github.com/daanhaa/Computer-Vision/blob/main/HW1_0305/HW1_01.py)
 
 ### 결과 화면
 ![image](https://github.com/user-attachments/assets/5371a7d3-725d-4b4b-9fd8-e91951dbcf6e)  
@@ -44,7 +44,7 @@ cv.imshow(): 결합된 영상을 실시간으로 출력
 cv.waitKey(q): q 키를 누르면 종료  
 cap.release() & cv.destroyAllWindows(): 웹캠과 모든 창 닫기
 
-[02 웹캠 영상에서 에지 검출]()
+[02 웹캠 영상에서 에지 검출 코드 보러가기](https://github.com/daanhaa/Computer-Vision/blob/main/HW1_0305/HW1_02.py)
 
 ### 결과 화면
 ![image](https://github.com/user-attachments/assets/a5ca0608-07dc-42ee-82b3-bf74f815f420)  
@@ -71,7 +71,7 @@ cv.imshow(): 원본 이미지와 선택된 ROI를 표시.
 cv.waitKey(): q 키를 누르면 종료.
 cv.destroyAllWindows(): 모든 창 닫기.  
 
-[03 마우스로영역선택및ROI(관심영역) 추출]()
+[03 마우스로영역선택및ROI(관심영역) 추출 코드 보러가기](https://github.com/daanhaa/Computer-Vision/blob/main/HW1_0305/HW1_03.py)
   
 ### 결과 화면
 ![image](https://github.com/user-attachments/assets/09d29429-075d-45bb-afa5-54f078c4a43b)
