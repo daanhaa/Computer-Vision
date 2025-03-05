@@ -17,7 +17,7 @@
 - cv.imshow(): 결합된 이미지를 화면에 출력  
 - cv.waitKey() or cv.waitKey(0): 아무 키나 누르면 창이 닫힘  
 - cv.destroyAllWindows(): 모든 창 닫기
-
+<br>
 [01 이미지 불러오기 및 그레이스케일 변환 코드 보러가기](https://github.com/daanhaa/Computer-Vision/blob/main/HW1_0305/HW1_01.py)
 
 ### 결과 화면
@@ -33,8 +33,8 @@
 - 각프레임을그레이스케일로변환한후, cv.Canny() 함수를사용해에지검출수행
 - 원본영상과에지검출영상을가로로연결하여화면에출력
 - q 키를누르면영상창이종료
-- 
 
+<br>
 ### 코드 설명
 cv.VideoCapture(): 웹캠을 열어 실시간 비디오 스트림을 가져옴  
 cv.cvtColor(): 실시간으로 받은 프레임을 그레이스케일로 변환  
@@ -45,12 +45,12 @@ cv.waitKey(q): q 키를 누르면 종료
 cap.release() & cv.destroyAllWindows(): 웹캠과 모든 창 닫기
 
 [02 웹캠 영상에서 에지 검출 코드 보러가기](https://github.com/daanhaa/Computer-Vision/blob/main/HW1_0305/HW1_02.py)
-
+<br>
 ### 결과 화면
 ![image](https://github.com/user-attachments/assets/a5ca0608-07dc-42ee-82b3-bf74f815f420)  
-.  
-.  
-.  
+<br>
+<br>
+<br>
 ## 03 마우스로영역선택및ROI(관심영역) 추출
 - 이미지를 불러오고 사용자가 마우스로 클릭하고 드래그하여 관심 영역(ROI)을 선택
 - 선택한 영역만 따로 저장하거나 표시
@@ -60,7 +60,8 @@ cap.release() & cv.destroyAllWindows(): 웹캠과 모든 창 닫기
 - 마우스를 놓으면 해당 영역을 잘라내서 별도의 창에 출력
 - r 키를 누르면 영역 선택을 리셋하고 처음부터 다시 선택
 - s 키를 누르면 선택한 영역을 이미지 파일로 저장
-- 
+<br>
+
 
 ### 코드 설명
 cv.setMouseCallback(): 마우스 클릭 및 드래그 이벤트 처리.
@@ -72,6 +73,6 @@ cv.waitKey(): q 키를 누르면 종료.
 cv.destroyAllWindows(): 모든 창 닫기.  
 
 [03 마우스로영역선택및ROI(관심영역) 추출 코드 보러가기](https://github.com/daanhaa/Computer-Vision/blob/main/HW1_0305/HW1_03.py)
-  
+<br>
 ### 결과 화면
 ![image](https://github.com/user-attachments/assets/09d29429-075d-45bb-afa5-54f078c4a43b)
