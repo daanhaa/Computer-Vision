@@ -7,4 +7,6 @@
 - cv.cvtColor() 함수를 사용해 이미지를 그레이스케일로 변환
 - np.hstack() 함수를 이용해 원본 이미지와 그레이스케일 이미지를 가로로 연결하여 출력
 - cv.imshow()와 cv.waitKey()를 사용해 결과를 화면에 표시하고, 아무키나 누르면 창이 닫히도록 할 것.
+
+### 결과 화면
 ![image](https://github.com/user-attachments/assets/5371a7d3-725d-4b4b-9fd8-e91951dbcf6e)
