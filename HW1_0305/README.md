@@ -8,6 +8,15 @@
 - np.hstack() 함수를 이용해 원본 이미지와 그레이스케일 이미지를 가로로 연결하여 출력
 - cv.imshow()와 cv.waitKey()를 사용해 결과를 화면에 표시하고, 아무키나 누르면 창이 닫히도록 할 것.
 
+### 코드 설명
+cv.imread(): 이미지를 불러오는 함수. BGR 형식으로 읽음.
+cv.cvtColor(): BGR 이미지를 그레이스케일로 변환.
+np.hstack(): 원본 이미지와 그레이스케일 이미지를 가로로 결합.
+cv.imshow(): 결합된 이미지를 화면에 출력.
+cv.waitKey(): 키 입력을 대기. 아무 키나 누르면 창이 닫힘.
+cv.destroyAllWindows(): 모든 창 닫기.
+
+
 ### 결과 화면
 ![image](https://github.com/user-attachments/assets/5371a7d3-725d-4b4b-9fd8-e91951dbcf6e)
 
@@ -19,8 +28,19 @@
 - 원본영상과에지검출영상을가로로연결하여화면에출력
 - q 키를누르면영상창이종료
 
+### 코드 설명
+cv.VideoCapture(): 웹캠을 열어 실시간 비디오 스트림을 가져옴.
+cv.cvtColor(): 실시간으로 받은 프레임을 그레이스케일로 변환.
+cv.Canny(): 변환된 프레임에 Canny 에지 검출 적용.
+np.hstack(): 원본 영상과 에지 검출된 영상을 가로로 결합.
+cv.imshow(): 결합된 영상을 실시간으로 출력.
+cv.waitKey(): q 키를 누르면 종료.
+cap.release() & cv.destroyAllWindows(): 웹캠과 모든 창 닫기.
+
+
 ### 결과 화면
 ![image](https://github.com/user-attachments/assets/a5ca0608-07dc-42ee-82b3-bf74f815f420)
+
 
 
 ## 마우스로영역선택및ROI(관심영역) 추출
@@ -33,6 +53,16 @@
 - 마우스를놓으면해당영역을잘라내서별도의창에출력
 - r 키를누르면영역선택을리셋하고처음부터다시선택
 - s 키를누르면선택한영역을이미지파일로저장
+
+### 코드 설명
+cv.setMouseCallback(): 마우스 클릭 및 드래그 이벤트 처리.
+cv.rectangle(): 드래그 중인 사각형을 화면에 실시간 표시.
+cv.imwrite(): 드래그로 선택한 ROI를 이미지 파일로 저장 (s 키).
+r 키: 선택 초기화 → 원본 이미지로 복구.
+cv.imshow(): 원본 이미지와 선택된 ROI를 표시.
+cv.waitKey(): q 키를 누르면 종료.
+cv.destroyAllWindows(): 모든 창 닫기.
+
 
 ### 결과 화면
 ![image](https://github.com/user-attachments/assets/09d29429-075d-45bb-afa5-54f078c4a43b)
