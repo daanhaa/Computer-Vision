@@ -15,9 +15,9 @@ np.hstack(): 원본 이미지와 그레이스케일 이미지를 가로로 결�
 cv.imshow(): 결합된 이미지를 화면에 출력.
 cv.waitKey(): 키 입력을 대기. 아무 키나 누르면 창이 닫힘.
 cv.destroyAllWindows(): 모든 창 닫기.
+- [x]
 
-
-[x] 결과 화면
+### 결과 화면
 ![image](https://github.com/user-attachments/assets/5371a7d3-725d-4b4b-9fd8-e91951dbcf6e)
 
 ## 웹캠 영상에서 에지 검출
