@@ -1,4 +1,5 @@
 # HW1
+<span style="color: purple; font-weight: bold;">굵고 보라색인 글씨</span>
 ## 이미지 불러오기 및 그레이스케일 변환
 - OpenCV를사용하여 이미지를 불러오고 화면에 출력
 - 원본 이미지와 그레이스케일로 변환된 이미지를 나란히 표시
