@@ -59,7 +59,7 @@ cap.release() & cv.destroyAllWindows(): 웹캠과 모든 창 닫기
 - r 키를 누르면 영역 선택을 리셋하고 처음부터 다시 선택
 - s 키를 누르면 선택한 영역을 이미지 파일로 저장
 <br>
-
+<strong>테스트코드입니다.</strong>
 
 ### 코드 설명
 cv.setMouseCallback(): 마우스 클릭 및 드래그 이벤트 처리.
