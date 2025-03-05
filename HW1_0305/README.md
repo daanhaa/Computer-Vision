@@ -22,9 +22,7 @@
 
 ### 결과 화면
 ![image](https://github.com/user-attachments/assets/5371a7d3-725d-4b4b-9fd8-e91951dbcf6e)  
-.  
-.  
-.  
+<br>
 
 ## 02 웹캠 영상에서 에지 검출
 - 웹캠을 사용하여 실시간 비디오 스트림을 가져온다
