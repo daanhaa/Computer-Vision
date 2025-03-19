@@ -41,8 +41,5 @@ plt.title('Binary Image Histogram')
 plt.tight_layout()
 plt.show()
 
-# 이미지 출력 (OpenCV)
-cv.imshow('Grayscale Image', image)
-cv.imshow('Binary Image', binary_image)
 cv.waitKey(0)
 cv.destroyAllWindows()
