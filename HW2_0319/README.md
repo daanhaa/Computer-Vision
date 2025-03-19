@@ -3,22 +3,28 @@
 ### **🔹 수행 과정** <br>
 1️⃣ 이미지를 **그레이스케일로 변환**  <br>
 2️⃣ 특정 임계값(Threshold)을 설정하여 **이진화(Binary Image) 적용**  <br>
-3️⃣ **이진화된 이미지의 히스토그램을 계산하고 시각화**  <br>
-
+3️⃣ **이진화된 이미지의 히스토그램을 계산하고 시각화**   <br>
+<br>
 ## ✅ 구현 요구사항
-💡 **OpenCV를 활용한 영상 처리 기법 적용**   <br>
-✔ `cv.imread()`를 사용하여 이미지를 불러오기  <br>
-✔ `cv.cvtColor()`를 이용하여 **그레이스케일 변환** <br> 
-✔ `cv.threshold()`를 활용하여 **이진화(Thresholding) 수행** <br>  
-✔ `cv.calcHist()`를 이용해 **히스토그램을 계산하고 시각화**  <br>
-✔ `matplotlib`을 사용하여 **히스토그램 그래프 출력**  <br>
-
+💡 **OpenCV를 활용한 영상 처리 기법 적용**  
+✔ `cv.imread()`를 사용하여 이미지를 불러오기 
+✔ `cv.cvtColor()`를 이용하여 **그레이스케일 변환**  
+✔ `cv.threshold()`를 활용하여 **이진화(Thresholding) 수행**  
+✔ `cv.calcHist()`를 이용해 **히스토그램을 계산하고 시각화**  
+✔ `matplotlib`을 사용하여 **히스토그램 그래프 출력** 
+✔ **그레이스케일 이미지도 히스토그램 구하기**
+<br>
 ## 🔎 구현 힌트
-✔ `cv.threshold()` 함수의 **두 번째 인자**는 임계값이며, 기본적으로 `127`을 사용합니다.  
-✔ `plt.plot()`을 활용하여 **히스토그램을 시각적으로 확인**할 수 있습니다.  
-✔ 히스토그램을 분석하면 **어두운 영역과 밝은 영역의 분포를 쉽게 파악**할 수 있습니다.  
+✔ `cv.threshold()` 함수의 **두 번째 인자**는 임계값이며, 기본적으로 `127` 사용  
+✔ `plt.plot()`을 활용하여 **히스토그램을 시각적으로 확인** 가능  
+✔ 히스토그램을 분석하면 **어두운 영역과 밝은 영역의 분포를 쉽게 파악** 가능
+
+## 구현 결과
+![image](https://github.com/user-attachments/assets/7e83374c-5107-439f-a061-53ad4508279e)
+
 
 ---
+<br>
 
 ## **02. 모폴로지 연산 적용하기**  
 
@@ -34,9 +40,13 @@
 ✔ `cv.imshow()`를 사용하여 **출력된 결과를 확인**  
 
 ## 🔎 구현 힌트  
-✔ `cv.MORPH_DILATE`, `cv.MORPH_ERODE`, `cv.MORPH_OPEN`, `cv.MOxRPH_CLOSE` 연산을 사용합니다.  
-✔ 모폴로지 연산을 적용하면 **노이즈 제거 및 객체 경계선 보정이 가능**합니다.  
-✔ `cv.imshow()`를 활용해 **원본과 변환된 이미지를 한 화면에서 비교**하면 효과적입니다.  
+✔ `cv.MORPH_DILATE`, `cv.MORPH_ERODE`, `cv.MORPH_OPEN`, `cv.MOxRPH_CLOSE` 연산  사용  
+✔ 모폴로지 연산을 적용하면 **노이즈 제거 및 객체 경계선 보정이 가능**
+✔ `cv.imshow()`를 활용해 **원본과 변환된 이미지를 한 화면에서 비교**
+
+## 구현 결과
+![image](https://github.com/user-attachments/assets/ba4341a8-9d1c-4808-b071-be361f1cfae9)
+
 
 ---
 
@@ -57,5 +67,9 @@
 ✔ `cv.getRotationMatrix2D()`의 세 번째 인자는 **회전 중심 (cols/2, rows/2)**  
 ✔ `cv.warpAffine()`의 네 번째 인자는 **출력 이미지 크기 (int(cols*1.5), int(rows*1.5))**  
 ✔ `cv.INTER_LINEAR`을 사용하면 **확대 시에도 부드러운 결과를 얻을 수 있음**  
+
+## 구현 결과
+![image](https://github.com/user-attachments/assets/0ed52bc8-2ecd-41d6-9cd0-0461cdc21323)
+
 
 ---
