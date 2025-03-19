@@ -64,8 +64,11 @@
 - `np.hstack()`으로 **모든 연산 결과를 하나의 이미지로 연결**  
 - `cv.imshow()`로 **한 화면에서 비교 출력** 
 <br>
+
 ### 구현 결과
+
 ![image](https://github.com/user-attachments/assets/ba4341a8-9d1c-4808-b071-be361f1cfae9)
+
 
 ### 🔗Github [HW2_02.py](https://github.com/daanhaa/Computer-Vision/blob/main/HW2_0319/HW2_02.py) 
 
