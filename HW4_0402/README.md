@@ -260,6 +260,13 @@ plt.imshow(cv.cvtColor(image, cv.COLOR_BGR2RGB))
 #### [HW4_03파일로 이동](https://github.com/daanhaa/Computer-Vision/blob/main/HW4_0402/HW4_03.py)
 
 
-
-
 ---
+
+#### +++ 특징점 원 크기가 달라지는 이유
+- SIFT 특징점 위에 크기가 다른 원들이 그려진 이유는 SIFT 특징점 시각화 시 cv.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS 옵션을 사용했기 때문
+1. SIFT는 다양한 스케일 공간에서 특징점을 검출함 (Gaussian Pyramid)
+2. 각 특징점은 자신이 검출된 스케일 정보를 포함
+3. DRAW_RICH_KEYPOINTS는 이 스케일을 원 크기로 반영해서 그림
+4. 따라서 큰 원은 큰 구조나 멀리 있는 물체, 작은 원은 작고 세밀한 부분을 의미함
+
+
