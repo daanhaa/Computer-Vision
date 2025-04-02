@@ -254,6 +254,8 @@ plt.imshow(cv.cvtColor(image, cv.COLOR_BGR2RGB))
 
 ![image](https://github.com/user-attachments/assets/5812f6b8-38a6-46d4-9984-584b67c5eb6a)
 
+![image](https://github.com/user-attachments/assets/8ce4e3a0-314b-4dec-a4e6-3003dceb4aa4)
+
 
 
 #### GITHUB
