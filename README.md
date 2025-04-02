@@ -18,3 +18,9 @@
 - 03.GrabCut을 이용한 대화식 영역 분할 및 객체 검출
 - [HW03 파일로 이동](https://github.com/daanhaa/Computer-Vision/tree/main/HW3_0326)
 
+### HW 4 (4/2)
+- 01.SIFT를 이용한 특징점 검출 및 시각화
+- 02.SIFT를 이용한 두 영상 간 특징점 매칭( cv.BFMatcher(), cv.FlannBasedMatcher())
+- 03.호모그래피를 이용한 이미지 정합(Image Alignment)
+- [HW04 파일로 이동]()
+
