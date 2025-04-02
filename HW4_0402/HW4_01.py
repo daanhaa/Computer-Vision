@@ -20,12 +20,12 @@ img_keypoints = cv.drawKeypoints(
 # 시각화
 plt.figure(figsize=(12, 6))
 plt.subplot(1, 2, 1)
-plt.title("원본 이미지")
+plt.title("Origin")
 plt.imshow(cv.cvtColor(img, cv.COLOR_BGR2RGB))
 plt.axis('off')
 
 plt.subplot(1, 2, 2)
-plt.title("SIFT 특징점")
+plt.title("SIFT feature point")
 plt.imshow(cv.cvtColor(img_keypoints, cv.COLOR_BGR2RGB))
 plt.axis('off')
 plt.tight_layout()

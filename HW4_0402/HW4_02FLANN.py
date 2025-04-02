@@ -34,7 +34,7 @@ img_matches = cv.drawMatches(img1, kp1, img2, kp2, good_matches[:50], None, flag
 
 # 결과 출력
 plt.figure(figsize=(14, 7))
-plt.title("FLANN 기반 SIFT 특징점 매칭 결과 (Top 50)")
+plt.title("FLANN SIFT feature point matching (Top 50)")
 plt.imshow(cv.cvtColor(img_matches, cv.COLOR_BGR2RGB))
 plt.axis('off')
 plt.show()
