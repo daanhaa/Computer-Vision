@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt  # 그래프를 그리기 위한 라이브러리
 
 # 데이터 전처리 및 로드
 transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))])
+
 trainset = datasets.MNIST(root='./data', train=True, download=True, transform=transform)
 testset = datasets.MNIST(root='./data', train=False, download=True, transform=transform)
 
@@ -35,6 +36,7 @@ optimizer = optim.Adam(model.parameters(), lr=0.001)
 
 # 손실 값을 기록할 리스트
 losses = []
+accuracies = []  # 정확도 저장 리스트
 
 # 훈련
 epochs = 10
@@ -54,24 +56,41 @@ for epoch in range(epochs):
     losses.append(avg_loss)
 
     print(f"Epoch {epoch+1}, Loss: {avg_loss}")
+    
+    # 테스트 정확도 계산
+    model.eval()
+    correct = 0
+    total = 0
+    with torch.no_grad():
+        for images, labels in testloader:
+            outputs = model(images)
+            _, predicted = torch.max(outputs.data, 1)
+            total += labels.size(0)
+            correct += (predicted == labels).sum().item()
+    accuracy = 100 * correct / total
+    accuracies.append(accuracy)
 
-# 모델 평가
-model.eval()
-correct = 0
-total = 0
-with torch.no_grad():
-    for images, labels in testloader:
-        outputs = model(images)
-        _, predicted = torch.max(outputs.data, 1)
-        total += labels.size(0)
-        correct += (predicted == labels).sum().item()
+# 최종 모델 평가 및 정확도 출력
+print(f'Final Accuracy: {accuracies[-1]:.2f}%')
 
-print(f'Accuracy: {100 * correct / total}%')
+# 손실 및 정확도 그래프 출력
+plt.figure(figsize=(12, 5))
 
 # 손실 그래프 출력
+plt.subplot(1, 2, 1)
 plt.plot(range(1, epochs+1), losses, marker='o')
 plt.title('Training Loss Over Epochs')
 plt.xlabel('Epoch')
 plt.ylabel('Loss')
 plt.grid(True)
+
+# 정확도 그래프 출력
+plt.subplot(1, 2, 2)
+plt.plot(range(1, epochs+1), accuracies, marker='s', color='orange')
+plt.title('Test Accuracy Over Epochs')
+plt.xlabel('Epoch')
+plt.ylabel('Accuracy (%)')
+plt.grid(True)
+
+plt.tight_layout()
 plt.show()
