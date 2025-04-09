@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
+import matplotlib.pyplot as plt  # 그래프를 그리기 위한 라이브러리
 
 # 데이터 전처리 및 로드
 transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))])
@@ -32,8 +33,11 @@ model = SimpleNN()
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
+# 손실 값을 기록할 리스트
+losses = []
+
 # 훈련
-epochs = 5
+epochs = 10
 for epoch in range(epochs):
     model.train()
     running_loss = 0.0
@@ -45,7 +49,11 @@ for epoch in range(epochs):
         optimizer.step()
         running_loss += loss.item()
 
-    print(f"Epoch {epoch+1}, Loss: {running_loss/len(trainloader)}")
+    # 에포크마다 평균 손실 기록
+    avg_loss = running_loss / len(trainloader)
+    losses.append(avg_loss)
+
+    print(f"Epoch {epoch+1}, Loss: {avg_loss}")
 
 # 모델 평가
 model.eval()
@@ -59,3 +67,11 @@ with torch.no_grad():
         correct += (predicted == labels).sum().item()
 
 print(f'Accuracy: {100 * correct / total}%')
+
+# 손실 그래프 출력
+plt.plot(range(1, epochs+1), losses, marker='o')
+plt.title('Training Loss Over Epochs')
+plt.xlabel('Epoch')
+plt.ylabel('Loss')
+plt.grid(True)
+plt.show()

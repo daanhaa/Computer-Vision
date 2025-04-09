@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
+import matplotlib.pyplot as plt  # 이미지 출력용 라이브러리
 
 # 데이터 전처리 및 로드 (정규화 수정)
 transform = transforms.Compose([
@@ -39,6 +40,10 @@ model = CNN()
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
+# 손실 값을 기록할 리스트
+train_losses = []
+test_losses = []
+
 # 훈련
 epochs = 30
 for epoch in range(epochs):
@@ -52,7 +57,23 @@ for epoch in range(epochs):
         optimizer.step()
         running_loss += loss.item()
 
-    print(f"Epoch {epoch+1}, Loss: {running_loss/len(trainloader)}")
+    # 에포크마다 평균 훈련 손실 기록
+    avg_train_loss = running_loss / len(trainloader)
+    train_losses.append(avg_train_loss)
+
+    # 테스트 손실 계산
+    model.eval()
+    running_test_loss = 0.0
+    with torch.no_grad():
+        for images, labels in testloader:
+            outputs = model(images)
+            loss = criterion(outputs, labels)
+            running_test_loss += loss.item()
+
+    avg_test_loss = running_test_loss / len(testloader)
+    test_losses.append(avg_test_loss)
+
+    print(f"Epoch {epoch+1}, Train Loss: {avg_train_loss}, Test Loss: {avg_test_loss}")
 
 # 모델 평가
 model.eval()
@@ -66,3 +87,27 @@ with torch.no_grad():
         correct += (predicted == labels).sum().item()
 
 print(f'Accuracy: {100 * correct / total}%')
+
+# 손실 그래프 출력
+plt.plot(range(1, epochs+1), train_losses, label='Train Loss', marker='o')
+plt.plot(range(1, epochs+1), test_losses, label='Test Loss', marker='x')
+plt.title('Training and Testing Loss Over Epochs')
+plt.xlabel('Epoch')
+plt.ylabel('Loss')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# 테스트 이미지 출력 및 예측값 출력
+data_iter = iter(testloader)
+images, labels = data_iter.next()
+
+# 이미지 출력 (배치에서 첫 번째 이미지를 출력)
+fig, axes = plt.subplots(1, 5, figsize=(12, 3))
+for i in range(5):  # 첫 5개 이미지를 출력
+    ax = axes[i]
+    ax.imshow(images[i].permute(1, 2, 0))  # (C, H, W) -> (H, W, C)로 변환
+    ax.set_title(f"True: {trainset.classes[labels[i]]}\nPred: {trainset.classes[predicted[i]]}")
+    ax.axis('off')
+
+plt.show()
