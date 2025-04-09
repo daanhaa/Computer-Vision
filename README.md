@@ -22,5 +22,9 @@
 - 01.SIFT를 이용한 특징점 검출 및 시각화
 - 02.SIFT를 이용한 두 영상 간 특징점 매칭( cv.BFMatcher(), cv.FlannBasedMatcher())
 - 03.호모그래피를 이용한 이미지 정합(Image Alignment)
-- [HW04 파일로 이동]()
+- [HW04 파일로 이동](https://github.com/daanhaa/Computer-Vision/tree/main/HW4_0402)
 
+### HW 5 (4/9)
+- 01.간단한 이미지 분류기 구현
+- 02.CIFAR-10 데이터셋을 활용한 CNN 모델구축
+- [HW05 파일로 이동](https://github.com/daanhaa/Computer-Vision/tree/main/HW5_0409)
