@@ -100,14 +100,21 @@ plt.show()
 
 # 테스트 이미지 출력 및 예측값 출력
 data_iter = iter(testloader)
-images, labels = data_iter.next()
+images, labels = next(data_iter)
+
+# 예측값 계산
+outputs = model(images)
+_, predicted = torch.max(outputs, 1)
 
 # 이미지 출력 (배치에서 첫 번째 이미지를 출력)
 fig, axes = plt.subplots(1, 5, figsize=(12, 3))
 for i in range(5):  # 첫 5개 이미지를 출력
     ax = axes[i]
     ax.imshow(images[i].permute(1, 2, 0))  # (C, H, W) -> (H, W, C)로 변환
-    ax.set_title(f"True: {trainset.classes[labels[i]]}\nPred: {trainset.classes[predicted[i]]}")
+    # 예측값과 실제값을 비교
+    predicted_label = testset.classes[predicted[i]]  # testset에서 클래스 이름을 가져옵니다
+    true_label = testset.classes[labels[i]]  # testset에서 실제 클래스 이름을 가져옵니다
+    ax.set_title(f"True: {true_label}\nPred: {predicted_label}")  # 타이틀에 실제값과 예측값 표시
     ax.axis('off')
 
 plt.show()
