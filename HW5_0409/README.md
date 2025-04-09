@@ -125,7 +125,7 @@ optimizer = optim.Adam(model.parameters(), lr=0.001)
 
 
 
-## 02. 간단한 이미지 분류기 구현
+## 02. CIFAR-10 데이터셋을 활용한 CNN 모델구축
 
 ### 📘 설명
 
