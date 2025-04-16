@@ -1,51 +1,40 @@
-import cv2 as cv
+import cv2
 import mediapipe as mp
 
-# MediaPipe 초기화
+cap = cv2.VideoCapture(0, cv2.CAP_MSMF)  # 백엔드 변경 (Windows에서 MSMF 호환성 좋음)
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+
 mp_face_mesh = mp.solutions.face_mesh
-mp_drawing = mp.solutions.drawing_utils
-mp_styles = mp.solutions.drawing_styles
-
-# 웹캠 열기
-cap = cv.VideoCapture(0, cv.CAP_DSHOW)
-if not cap.isOpened():
-    print("웹캠을 열 수 없습니다.")
-    exit()
-
 with mp_face_mesh.FaceMesh(
-        max_num_faces=2,
-        refine_landmarks=True,
-        min_detection_confidence=0.5,
-        min_tracking_confidence=0.5) as face_mesh:
+    max_num_faces=1,
+    refine_landmarks=True,
+    min_detection_confidence=0.5,
+    min_tracking_confidence=0.5
+) as face_mesh:
 
-    while True:
-        ret, frame = cap.read()
-        if not ret:
-            print("프레임 획득 실패")
+    while cap.isOpened():
+        success, frame = cap.read()
+        if not success:
+            print("❌ 프레임 캡처 실패")
             break
 
-        # RGB로 변환 (MediaPipe는 RGB 필요)
-        img_rgb = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
+        # RGB 변환
+        rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
-        # 얼굴 메시 처리
-        results = face_mesh.process(img_rgb)
+        results = face_mesh.process(rgb_frame)
+        output_frame = frame.copy()
 
-        # 결과 그리기
         if results.multi_face_landmarks:
             for face_landmarks in results.multi_face_landmarks:
-                mp_drawing.draw_landmarks(
-                    image=frame,
-                    landmark_list=face_landmarks,
-                    connections=mp_face_mesh.FACEMESH_TESSELATION,
-                    landmark_drawing_spec=None,
-                    connection_drawing_spec=mp_styles.get_default_face_mesh_tesselation_style())
+                h, w, _ = output_frame.shape
+                for lm in face_landmarks.landmark:
+                    x, y = int(lm.x * w), int(lm.y * h)
+                    cv2.circle(output_frame, (x, y), 1, (0, 255, 0), -1)
 
-        # 화면 출력
-        cv.imshow("MediaPipe Face Mesh", cv.flip(frame, 1))  # 좌우반전
-
-        # 종료 조건
-        if cv.waitKey(1) & 0xFF == ord('q'):
+        cv2.imshow("FaceMesh", output_frame)
+        if cv2.waitKey(1) & 0xFF == 27:
             break
 
 cap.release()
-cv.destroyAllWindows()
+cv2.destroyAllWindows()
